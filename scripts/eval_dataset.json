@@ -1,0 +1,110 @@
+[
+  {
+    "id": "eval_01",
+    "category": "direct_factual",
+    "expected_workflow": "simple_rag",
+    "question": "What is Reciprocal Rank Fusion and how is its formula defined?",
+    "target_doc": "rag_architecture_patterns.pdf",
+    "expected_concepts": ["RRF", "k", "dense", "sparse", "rank"],
+    "should_abstain": false
+  },
+  {
+    "id": "eval_02",
+    "category": "direct_factual",
+    "expected_workflow": "simple_rag",
+    "question": "What chunking strategies are discussed for processing technical documents?",
+    "target_doc": "rag_architecture_patterns.pdf",
+    "expected_concepts": ["fixed-size", "semantic", "structural", "tables"],
+    "should_abstain": false
+  },
+  {
+    "id": "eval_03",
+    "category": "direct_factual",
+    "expected_workflow": "simple_rag",
+    "question": "Which vector database provides in-process, GPU-accelerated nearest neighbor search?",
+    "target_doc": "vector_database_comparison.pdf",
+    "expected_concepts": ["FAISS", "in-memory", "GPU"],
+    "should_abstain": false
+  },
+  {
+    "id": "eval_04",
+    "category": "comparison",
+    "expected_workflow": "agentic",
+    "question": "Compare FAISS and Pinecone across query latency, hosting architecture, and operational cost.",
+    "target_doc": "vector_database_comparison.pdf",
+    "expected_concepts": ["FAISS", "Pinecone", "latency", "managed", "cost"],
+    "should_abstain": false
+  },
+  {
+    "id": "eval_05",
+    "category": "comparison",
+    "expected_workflow": "agentic",
+    "question": "Compare LangGraph and AutoGen in how they handle agent orchestration and cyclic workflows.",
+    "target_doc": "agentic_ai_frameworks.pdf",
+    "expected_concepts": ["LangGraph", "AutoGen", "cyclic", "state graph", "conversational"],
+    "should_abstain": false
+  },
+  {
+    "id": "eval_06",
+    "category": "comparison",
+    "expected_workflow": "agentic",
+    "question": "Compare Weaviate and pgvector for production vector search at scale.",
+    "target_doc": "vector_database_comparison.pdf",
+    "expected_concepts": ["Weaviate", "pgvector", "PostgreSQL", "HNSW", "filtering"],
+    "should_abstain": false
+  },
+  {
+    "id": "eval_07",
+    "category": "multi_step_reasoning",
+    "expected_workflow": "agentic",
+    "question": "What architectural considerations and trade-offs should be evaluated when deploying a hybrid RAG system at enterprise scale?",
+    "target_doc": "rag_architecture_patterns.pdf",
+    "expected_concepts": ["hybrid", "latency", "chunking", "re-ranking", "cost"],
+    "should_abstain": false
+  },
+  {
+    "id": "eval_08",
+    "category": "multi_step_reasoning",
+    "expected_workflow": "agentic",
+    "question": "How do error recovery, replanning, and human-in-the-loop checkpoints work across modern agentic frameworks?",
+    "target_doc": "agentic_ai_frameworks.pdf",
+    "expected_concepts": ["human-in-the-loop", "error recovery", "reflection", "checkpoints"],
+    "should_abstain": false
+  },
+  {
+    "id": "eval_09",
+    "category": "cross_document",
+    "expected_workflow": "agentic",
+    "question": "How can hybrid dense-sparse retrieval be integrated with vector databases like Pinecone or Weaviate to improve RAG accuracy?",
+    "target_doc": "rag_architecture_patterns.pdf",
+    "expected_concepts": ["hybrid search", "BM25", "vector database", "Pinecone", "Weaviate"],
+    "should_abstain": false
+  },
+  {
+    "id": "eval_10",
+    "category": "ambiguous",
+    "expected_workflow": "simple_rag",
+    "question": "What about chunk sizes?",
+    "target_doc": "rag_architecture_patterns.pdf",
+    "expected_concepts": ["chunk", "tokens", "granularity", "size"],
+    "should_abstain": false
+  },
+  {
+    "id": "eval_11",
+    "category": "unanswerable",
+    "expected_workflow": "simple_rag",
+    "question": "What are the first-line medication recommendations for treating adolescent asthma?",
+    "target_doc": "none",
+    "expected_concepts": [],
+    "should_abstain": true
+  },
+  {
+    "id": "eval_12",
+    "category": "unanswerable",
+    "expected_workflow": "simple_rag",
+    "question": "What was the quarterly revenue of Nvidia in Q3 2021?",
+    "target_doc": "none",
+    "expected_concepts": [],
+    "should_abstain": true
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "total_test_cases": 2,
+  "routing_accuracy_pct": 100.0,
+  "abstention_accuracy_pct": 100.0,
+  "grounding_faithfulness_pct": 100.0,
+  "avg_latency_simple_rag_sec": 211.52,
+  "avg_latency_agentic_sec": 0.0,
+  "detailed_results": [
+    {
+      "id": "eval_01",
+      "category": "direct_factual",
+      "question": "What is Reciprocal Rank Fusion and how is its formula defined?",
+      "expected_workflow": "simple_rag",
+      "actual_workflow": "simple_rag",
+      "routing_match": true,
+      "router_score": 0,
+      "should_abstain": false,
+      "abstained": false,
+      "abstained_correctly": true,
+      "verification_status": "supported",
+      "confidence": 1.0,
+      "sources_count": 5,
+      "latency_seconds": 278.1,
+      "answer_snippet": "*   Question: *   Question: \"What is Reciprocal Rank Fusion and how is its formula defined?\"     *   Constraint: Answer ONLY using provided evidence. Use inline citations [DocName, p.X]. If not found,..."
+    },
+    {
+      "id": "eval_02",
+      "category": "direct_factual",
+      "question": "What chunking strategies are discussed for processing technical documents?",
+      "expected_workflow": "simple_rag",
+      "actual_workflow": "simple_rag",
+      "routing_match": true,
+      "router_score": 0,
+      "should_abstain": false,
+      "abstained": false,
+      "abstained_correctly": true,
+      "verification_status": "supported",
+      "confidence": 0.85,
+      "sources_count": 5,
+      "latency_seconds": 144.93,
+      "answer_snippet": "Based on the provided documents, the following chunking details and strategy are discussed:  * **Fixed-Size Chunking**: This strategy involves splitting documents into chunks of exactly $N$ characters..."
+    }
+  ]
+}

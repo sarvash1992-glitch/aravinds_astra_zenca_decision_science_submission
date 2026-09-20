@@ -1,0 +1,42 @@
+services:
+  # FastAPI REST Backend Service
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: knowledge_assistant_api
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - LLM_PRIMARY_MODEL=${LLM_PRIMARY_MODEL:-google/gemma-4-31b-it}
+      - LLM_COMPLEX_MODEL=${LLM_COMPLEX_MODEL:-qwen/qwen3.8-27b}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Streamlit Interactive Demonstration UI
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: knowledge_assistant_ui
+    command: ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    ports:
+      - "8501:8501"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - LLM_PRIMARY_MODEL=${LLM_PRIMARY_MODEL:-google/gemma-4-31b-it}
+      - LLM_COMPLEX_MODEL=${LLM_COMPLEX_MODEL:-qwen/qwen3.8-27b}
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - api
+    restart: unless-stopped
